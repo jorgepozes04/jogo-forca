@@ -1,6 +1,85 @@
 package br.edu.iff.bancodepalavras.dominio.palavra.emmemoria;
 
+import br.edu.iff.bancodepalavras.dominio.palavra.Palavra;
 import br.edu.iff.bancodepalavras.dominio.palavra.PalavraRepository;
+import br.edu.iff.bancodepalavras.dominio.tema.Tema;
+import br.edu.iff.repository.RepositoryException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MemoriaPalavraRepository implements PalavraRepository {
+
+    private MemoriaPalavraRepository soleInstance;
+
+    private List<Palavra> pool = new ArrayList<>();
+
+    public MemoriaPalavraRepository getSoleInstance(){
+        return this.soleInstance;
+    }
+
+    @Override
+    public Palavra getPorId(long id) {
+        for(Palavra p : this.pool){
+            if(p.getId() == id){
+                return p;
+            }
+        }
+        throw new IllegalArgumentException("Nenhum Palavra encontrada");
+    }
+
+    @Override
+    public List<Palavra> getPorTema(Tema tema) {
+        List<Palavra> palavras = new ArrayList<>();
+        for(Palavra p : this.pool){
+            if(p.getTema() == tema){
+                palavras.add(p);
+            }
+        }
+        return palavras;
+    }
+
+    @Override
+    public List<Palavra> getTodas() {
+        return this.pool;
+    }
+
+    @Override
+    public Palavra getPalavra(String palavra) {
+        for(Palavra p : this.pool){
+            if(p.toString().equals(palavra)){
+                return p;
+            }
+        }
+        throw new IllegalArgumentException("Nenhum palavra encontrada");
+    }
+
+    @Override
+    public void inserir(Palavra palavra) throws RepositoryException {
+        try{
+            pool.add(palavra);
+        } catch(Exception e){
+            throw new RepositoryException(e);
+        };
+    }
+
+    @Override
+    public void atualizar(Palavra palavra) throws RepositoryException {
+        for (int i = 0; i < this.pool.size(); i++) {
+            if (this.pool.get(i).getId() == palavra.getId()) {
+                this.pool.set(i, palavra);
+            }
+        }
+        throw new IllegalArgumentException("Nenhum palavra encontrada");
+    }
+
+    @Override
+    public void remover(Palavra palavra) throws RepositoryException {
+        pool.remove(palavra);
+    }
+
+    @Override
+    public long getProximoId() {
+        return this.pool.size();
+    }
 }
