@@ -6,7 +6,6 @@ import br.edu.iff.bancodepalavras.dominio.tema.Tema;
 import br.edu.iff.dominio.ObjetoDominioImpl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Palavra extends ObjetoDominioImpl {
@@ -39,7 +38,7 @@ public class Palavra extends ObjetoDominioImpl {
     }
 
     public List<Letra> getLetras() {
-        //Retorna cópia
+        // Retorna cópia
         List<Letra> lista = this.letras;
         return lista;
     }
@@ -50,7 +49,7 @@ public class Palavra extends ObjetoDominioImpl {
 
     public int[] tentar(char codigo) {
         int contador = 0;
-        for(Letra l : letras) {
+        for (Letra l : letras) {
             if (l.getCodigo() == codigo) {
                 contador++;
             }
@@ -58,7 +57,7 @@ public class Palavra extends ObjetoDominioImpl {
 
         int[] posicoes = new int[contador];
         int idxPosicoes = 0;
-        for (int i = 0; i < letras.size(); i++){
+        for (int i = 0; i < letras.size(); i++) {
             if (letras.get(i).getCodigo() == codigo) {
                 posicoes[idxPosicoes] = i;
                 idxPosicoes++;
@@ -90,7 +89,7 @@ public class Palavra extends ObjetoDominioImpl {
         return palavra.length();
     }
 
-    private void setPalavra (String palavra) {
+    private void setPalavra(String palavra) {
         if (palavra == null || palavra.isEmpty()) {
             throw new IllegalArgumentException("A palavra não pode estar vazia!");
         }

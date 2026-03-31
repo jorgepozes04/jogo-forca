@@ -1,6 +1,5 @@
 package br.edu.iff.factory;
 
-import br.edu.iff.bancodepalavras.dominio.palavra.Palavra;
 import br.edu.iff.repository.Repository;
 
 public abstract class EntityFactory {
@@ -15,7 +14,7 @@ public abstract class EntityFactory {
         return this.repository;
     }
 
-    protected long getProximoId(){
+    protected long getProximoId() {
         return repository.getProximoId();
     }
 }
