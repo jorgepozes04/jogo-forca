@@ -8,7 +8,6 @@ public class BDRTemaRepository implements TemaRepository {
 
     @Override
     public long getProximoId() {
-        // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getProximoId'");
     }
 

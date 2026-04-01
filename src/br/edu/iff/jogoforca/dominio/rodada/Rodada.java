@@ -34,7 +34,7 @@ public class Rodada extends ObjetoDominioImpl {
     }
 
     public static void setPontosPorLetraEncoberta(int pontosPorLetraEncoberta) {
-        pontosPorLetraEncoberta = pontosPorLetraEncoberta;
+        Rodada.pontosPorLetraEncoberta = pontosPorLetraEncoberta;
     }
 
     public static int getPontosQuandoDescobreTodasAsPalavras() {
@@ -42,7 +42,7 @@ public class Rodada extends ObjetoDominioImpl {
     }
 
     public static void setPontosQuandoDescobreTodasAsPalavras(int pontosQuandoDescobreTodasAsPalavras) {
-        pontosPorTodasPalavrasDescobertas = pontosQuandoDescobreTodasAsPalavras;
+        Rodada.pontosPorTodasPalavrasDescobertas = pontosQuandoDescobreTodasAsPalavras;
     }
 
     public static int getMaxErros() {
@@ -50,7 +50,7 @@ public class Rodada extends ObjetoDominioImpl {
     }
 
     public static void setMaxErros(int maxErros) {
-        maxErros = maxErros;
+        Rodada.maxErros = maxErros;
     }
 
     public static int getMaxPalavras() {
@@ -58,7 +58,7 @@ public class Rodada extends ObjetoDominioImpl {
     }
 
     public static void setMaxPalavras(int maxPalavras) {
-        maxPalavras = maxPalavras;
+        Rodada.maxPalavras = maxPalavras;
     }
 
     public static Rodada criar(long id, Palavra[] palavras, Jogador jogador) {
