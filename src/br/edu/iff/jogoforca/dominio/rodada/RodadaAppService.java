@@ -3,9 +3,8 @@ package br.edu.iff.jogoforca.dominio.rodada;
 import java.util.Objects;
 
 import br.edu.iff.jogoforca.dominio.jogador.Jogador;
-import br.edu.iff.jogoforca.dominio.jogador.JogadorNaoEncontradoException;
-import br.edu.iff.jogoforca.dominio.jogador.JogadorRepository;
 import br.edu.iff.repository.RepositoryException;
+import br.edu.iff.jogoforca.dominio.jogador.JogadorRepository;
 
 public class RodadaAppService {
 

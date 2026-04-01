@@ -14,7 +14,7 @@ public class ElementoGraficoTextoFactory implements ElementoGraficoFactory {
 
     private LetraTextoFactory letraFactory;
 
-    public ElementoGraficoTextoFactory getSoleInstance() {
+    public static ElementoGraficoTextoFactory getSoleInstance() {
         if (ElementoGraficoTextoFactory.soleInstance == null) {
             ElementoGraficoTextoFactory.soleInstance = new ElementoGraficoTextoFactory();
         }

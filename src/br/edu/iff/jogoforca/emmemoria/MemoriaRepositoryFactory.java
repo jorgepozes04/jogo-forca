@@ -15,7 +15,7 @@ public class MemoriaRepositoryFactory implements RepositoryFactory {
     private RodadaRepository rodadaRepository;
     private JogadorRepository jogadorRepository;
 
-    public MemoriaRepositoryFactory getSoleInstance() {
+    public static MemoriaRepositoryFactory getSoleInstance() {
         if (MemoriaRepositoryFactory.soleInstance == null) {
             MemoriaRepositoryFactory.soleInstance = new MemoriaRepositoryFactory();
         }

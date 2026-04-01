@@ -13,7 +13,7 @@ public class PalavraFactoryImpl extends EntityFactory implements PalavraFactory 
         }
     }
 
-    public PalavraFactoryImpl getSoleInstance() {
+    public static PalavraFactoryImpl getSoleInstance() {
         return PalavraFactoryImpl.soleInstance;
     }
 
