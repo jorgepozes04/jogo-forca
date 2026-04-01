@@ -281,7 +281,6 @@ public class Rodada extends ObjetoDominioImpl {
         if (palavras.length == 0 || palavras.length > maxPalavras)
             throw new IllegalArgumentException("Tamanho inválido, precisa ser maior que 0 e menor que " + maxPalavras);
 
-        // Verificacao de temas iguais
         for (int i = 1; i < palavras.length; i++) {
             if (!(palavras[i].getTema().getId() == palavras[0].getTema().getId())) {
                 throw new IllegalStateException("Os temas tem que ser iguais");
