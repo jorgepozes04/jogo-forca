@@ -10,12 +10,12 @@ import java.util.List;
 
 public class MemoriaPalavraRepository implements PalavraRepository {
 
-    private MemoriaPalavraRepository soleInstance;
+    private static MemoriaPalavraRepository soleInstance;
 
     private List<Palavra> pool = new ArrayList<>();
 
     public MemoriaPalavraRepository getSoleInstance() {
-        return this.soleInstance;
+        return MemoriaPalavraRepository.soleInstance;
     }
 
     @Override

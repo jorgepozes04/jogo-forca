@@ -11,7 +11,7 @@ public class MemoriaJogadorRepository implements JogadorRepository {
     private static MemoriaJogadorRepository soleInstance = null;
     private ArrayList<Jogador> pool = new ArrayList<>();
 
-    public MemoriaJogadorRepository getSoleInstance() {
+    public static MemoriaJogadorRepository getSoleInstance() {
         if (MemoriaJogadorRepository.soleInstance == null) {
             MemoriaJogadorRepository.soleInstance = new MemoriaJogadorRepository();
         }
