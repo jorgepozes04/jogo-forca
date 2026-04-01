@@ -11,21 +11,24 @@ public abstract class Letra {
         return codigo;
     }
 
-    public void exibir(Object contexto) {
-    }
+    public abstract void exibir(Object contexto);
 
     @Override
     public boolean equals(Object o) {
+        Letra outraLetra = (Letra) o;
+
         if (o instanceof Letra) {
-            return this == o;
+            return this.codigo == outraLetra.getCodigo() && this.getClass().equals(outraLetra.getClass());
         }
         return false;
     }
 
-    // TODO
-    // public int hashCode();
+    @Override
+    public int hashCode() {
+        return codigo;
+    }
 
     public final String toString() {
-        return this.codigo + "";
+        return String.valueOf(this.codigo);
     }
 }

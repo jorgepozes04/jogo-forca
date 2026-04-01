@@ -1,6 +1,22 @@
 package br.edu.iff.bancodepalavras.dominio.letra.texto;
 
-import br.edu.iff.bancodepalavras.dominio.letra.LetraFactory;
+import br.edu.iff.bancodepalavras.dominio.letra.Letra;
+import br.edu.iff.bancodepalavras.dominio.letra.LetraFactoryImpl;
 
-public class LetraTextoFactory implements LetraFactory {
+public class LetraTextoFactory extends LetraFactoryImpl {
+    private static LetraTextoFactory soleInstance = null;
+
+    private LetraTextoFactory() {
+    }
+
+    public static LetraTextoFactory getSoleInstance() {
+        if (LetraTextoFactory.soleInstance == null) {
+            LetraTextoFactory.soleInstance = new LetraTextoFactory();
+        }
+        return LetraTextoFactory.soleInstance;
+    }
+
+    protected Letra criarLetra(char codigo) {
+        return new LetraTexto(codigo);
+    }
 }
