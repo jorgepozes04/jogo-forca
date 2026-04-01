@@ -21,44 +21,44 @@ public class Rodada extends ObjetoDominioImpl {
     private static int pontosPorLetraEncoberta = 15;
     private static int pontosPorTodasPalavrasDescobertas = 100;
 
-    public static BonecoFactory getBonecoFactory() {
-        return bonecoFactory;
+    public static int getMaxPalavras() {
+        return Rodada.maxPalavras;
     }
 
-    public static void setBonecoFactory(BonecoFactory bonecoFactory) {
-        Rodada.bonecoFactory = bonecoFactory;
-    }
-
-    public static int getPontosPorLetraEncoberta() {
-        return pontosPorLetraEncoberta;
-    }
-
-    public static void setPontosPorLetraEncoberta(int pontosPorLetraEncoberta) {
-        Rodada.pontosPorLetraEncoberta = pontosPorLetraEncoberta;
-    }
-
-    public static int getPontosQuandoDescobreTodasAsPalavras() {
-        return pontosPorTodasPalavrasDescobertas;
-    }
-
-    public static void setPontosQuandoDescobreTodasAsPalavras(int pontosQuandoDescobreTodasAsPalavras) {
-        Rodada.pontosPorTodasPalavrasDescobertas = pontosQuandoDescobreTodasAsPalavras;
+    public static void setMaxPalavras(int maxPalavras) {
+        Rodada.maxPalavras = maxPalavras;
     }
 
     public static int getMaxErros() {
-        return maxErros;
+        return Rodada.maxErros;
     }
 
     public static void setMaxErros(int maxErros) {
         Rodada.maxErros = maxErros;
     }
 
-    public static int getMaxPalavras() {
-        return maxPalavras;
+    public static int getPontosQuandoDescobreTodasAsPalavras() {
+        return Rodada.pontosPorTodasPalavrasDescobertas;
     }
 
-    public static void setMaxPalavras(int maxPalavras) {
-        Rodada.maxPalavras = maxPalavras;
+    public static void setPontosQuandoDescobreTodasAsPalavras(int pontosQuandoDescobreTodasAsPalavras) {
+        Rodada.pontosPorTodasPalavrasDescobertas = pontosQuandoDescobreTodasAsPalavras;
+    }
+
+    public static int getPontosPorLetraEncoberta() {
+        return Rodada.pontosPorLetraEncoberta;
+    }
+
+    public static void setPontosPorLetraEncoberta(int pontosPorLetraEncoberta) {
+        Rodada.pontosPorLetraEncoberta = pontosPorLetraEncoberta;
+    }
+
+    public static void setBonecoFactory(BonecoFactory bonecoFactory) {
+        Rodada.bonecoFactory = bonecoFactory;
+    }
+
+    public static BonecoFactory getBonecoFactory() {
+        return bonecoFactory;
     }
 
     public static Rodada criar(long id, Palavra[] palavras, Jogador jogador) {
@@ -116,7 +116,7 @@ public class Rodada extends ObjetoDominioImpl {
 
     public void tentar(char codigo) {
         if (encerrou())
-            throw new IllegalStateException("O Jogo ja encerrou, voce não pode mais tentar");
+            throw new IllegalStateException("Jogo encerrado! Não são permitidas mais tentativas.");
 
         boolean acertou = false;
 
