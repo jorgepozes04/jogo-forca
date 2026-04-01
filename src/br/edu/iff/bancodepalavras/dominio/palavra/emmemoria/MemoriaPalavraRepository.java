@@ -14,14 +14,14 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 
     private List<Palavra> pool = new ArrayList<>();
 
-    public MemoriaPalavraRepository getSoleInstance(){
+    public MemoriaPalavraRepository getSoleInstance() {
         return this.soleInstance;
     }
 
     @Override
     public Palavra getPorId(long id) {
-        for(Palavra p : this.pool){
-            if(p.getId() == id){
+        for (Palavra p : this.pool) {
+            if (p.getId() == id) {
                 return p;
             }
         }
@@ -29,25 +29,25 @@ public class MemoriaPalavraRepository implements PalavraRepository {
     }
 
     @Override
-    public List<Palavra> getPorTema(Tema tema) {
+    public Palavra[] getPorTema(Tema tema) {
         List<Palavra> palavras = new ArrayList<>();
-        for(Palavra p : this.pool){
-            if(p.getTema() == tema){
+        for (Palavra p : this.pool) {
+            if (p.getTema() == tema) {
                 palavras.add(p);
             }
         }
-        return palavras;
+        return palavras.toArray(new Palavra[0]);
     }
 
     @Override
-    public List<Palavra> getTodas() {
-        return this.pool;
+    public Palavra[] getTodas() {
+        return this.pool.toArray(new Palavra[0]);
     }
 
     @Override
     public Palavra getPalavra(String palavra) {
-        for(Palavra p : this.pool){
-            if(p.toString().equals(palavra)){
+        for (Palavra p : this.pool) {
+            if (p.toString().equals(palavra)) {
                 return p;
             }
         }
@@ -56,11 +56,12 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 
     @Override
     public void inserir(Palavra palavra) throws RepositoryException {
-        try{
+        try {
             pool.add(palavra);
-        } catch(Exception e){
+        } catch (Exception e) {
             throw new RepositoryException(e);
-        };
+        }
+        ;
     }
 
     @Override

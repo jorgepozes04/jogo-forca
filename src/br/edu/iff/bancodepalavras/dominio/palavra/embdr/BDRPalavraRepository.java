@@ -5,46 +5,46 @@ import br.edu.iff.bancodepalavras.dominio.palavra.PalavraRepository;
 import br.edu.iff.bancodepalavras.dominio.tema.Tema;
 import br.edu.iff.repository.RepositoryException;
 
-import java.util.List;
-
 public class BDRPalavraRepository implements PalavraRepository {
+
+    @Override
+    public long getProximoId() {
+        throw new UnsupportedOperationException("Unimplemented method 'getProximoId'");
+    }
+
     @Override
     public Palavra getPorId(long id) {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'getPorId'");
     }
 
     @Override
-    public List<Palavra> getPorTema(Tema tema) {
-        return null;
+    public Palavra[] getPorTema(Tema tema) {
+        throw new UnsupportedOperationException("Unimplemented method 'getPorTema'");
     }
 
     @Override
-    public List<Palavra> getTodas() {
-        return null;
+    public Palavra[] getTodas() {
+        throw new UnsupportedOperationException("Unimplemented method 'getTodas'");
     }
 
     @Override
     public Palavra getPalavra(String palavra) {
-        return null;
+        throw new UnsupportedOperationException("Unimplemented method 'getPalavra'");
     }
 
     @Override
     public void inserir(Palavra palavra) throws RepositoryException {
-
+        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
     }
 
     @Override
     public void atualizar(Palavra palavra) throws RepositoryException {
-
+        throw new UnsupportedOperationException("Unimplemented method 'atualizar'");
     }
 
     @Override
     public void remover(Palavra palavra) throws RepositoryException {
-
+        throw new UnsupportedOperationException("Unimplemented method 'remover'");
     }
 
-    @Override
-    public long getProximoId() {
-        return -1;
-    }
 }
