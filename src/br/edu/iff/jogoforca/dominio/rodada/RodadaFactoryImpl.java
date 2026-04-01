@@ -35,14 +35,14 @@ public abstract class RodadaFactoryImpl extends EntityFactory implements RodadaF
 
     private void setTemaRepository(TemaRepository temaRepository) {
         if (temaRepository == null)
-            throw new IllegalArgumentException("O repositorio de tema nao pode ser nulo");
+            throw new IllegalArgumentException("O repositório de tema deve ser instanciado");
 
         this.temaRepository = temaRepository;
     }
 
     private void setPalavraRepository(PalavraRepository palavraRepository) {
         if (palavraRepository == null)
-            throw new IllegalArgumentException("O repositorio de palavra nao pode ser nulo");
+            throw new IllegalArgumentException("O repositório de palavra deve ser instanciado");
 
         this.palavraRepository = palavraRepository;
     }

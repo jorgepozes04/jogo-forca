@@ -14,7 +14,7 @@ public class Item extends ObjetoDominioImpl {
         return new Item(id, palavra);
     }
 
-    public static Item reconstruir(long id, Palavra palavra, int[] posicoesDescobertas, String palavraArriscada) {
+    public static Item reconstituir(long id, Palavra palavra, int[] posicoesDescobertas, String palavraArriscada) {
         return new Item(id, palavra, posicoesDescobertas, palavraArriscada);
     }
 
@@ -143,21 +143,21 @@ public class Item extends ObjetoDominioImpl {
 
     private void setPalavra(Palavra palavra) {
         if (palavra == null)
-            throw new IllegalArgumentException("A palavra nao pode ser nula");
+            throw new IllegalArgumentException("A palavra não pode ser nula");
 
         this.palavra = palavra;
     }
 
     private void setPosicoesDescobertas(int tamanho) {
         if (tamanho < 0)
-            throw new IllegalArgumentException("O tamanho nao pode ser negativo");
+            throw new IllegalArgumentException("O tamanho não pode ser negativo");
 
         this.posicoesDescobertas = new boolean[tamanho];
     }
 
     private void setPalavraArriscada(String palavraArriscada) {
         if (palavraArriscada == null || palavraArriscada.isEmpty())
-            throw new IllegalArgumentException("A palavra nao pode ser nula nem vazia");
+            throw new IllegalArgumentException("A palavra não pode ser nula nem vazia");
 
         this.palavraArriscada = palavraArriscada;
     }
