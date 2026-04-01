@@ -15,17 +15,15 @@ public abstract class Letra {
 
     @Override
     public boolean equals(Object o) {
-        Letra outraLetra = (Letra) o;
-
-        if (o instanceof Letra) {
-            return this.codigo == outraLetra.getCodigo() && this.getClass().equals(outraLetra.getClass());
-        }
-        return false;
+        if (!(o instanceof Letra))
+            return false;
+        Letra outra = (Letra) o;
+        return this.codigo == outra.codigo && this.getClass().equals(outra.getClass());
     }
 
     @Override
     public int hashCode() {
-        return codigo;
+        return this.codigo + this.getClass().hashCode();
     }
 
     public final String toString() {
