@@ -29,9 +29,9 @@ public class Rodada extends ObjetoDominioImpl {
         return new Rodada(id, palavras, jogador);
     }
 
-    public static Rodada reconstituir(long id, Palavra[] palavras, Jogador jogador, 
-                                      int[] posicoesDescobertas, String[] palavrasArriscadas, 
-                                      Letra[] erradas, int qtdeErros) {
+    public static Rodada reconstituir(long id, Palavra[] palavras, Jogador jogador,
+            int[] posicoesDescobertas, String[] palavrasArriscadas,
+            Letra[] erradas, int qtdeErros) {
         Rodada rodada = new Rodada(id, palavras, jogador);
         rodada.setErradas(erradas);
         rodada.qtdeErros = qtdeErros;
@@ -45,7 +45,7 @@ public class Rodada extends ObjetoDominioImpl {
         if (palavras.length > maxPalavras) {
             throw new IllegalArgumentException("Máximo " + maxPalavras + " palavras permitidas");
         }
-        
+
         long id = 0;
         for (int i = 0; i < palavras.length; i++) {
             itens[i] = Item.criar(id++, palavras[i]);
@@ -145,7 +145,7 @@ public class Rodada extends ObjetoDominioImpl {
         if (itens[0] == null) {
             return false;
         }
-        
+
         for (int i = 0; i < itens.length; i++) {
             if (itens[i] != null && !itens[i].descobriu()) {
                 return false;
