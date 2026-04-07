@@ -29,7 +29,7 @@ public class Aplicacao {
     private String tipoElementoGraficoFactory = TIPOS_ELEMENTO_GRAFICO_FACTORY[0];
     private String tipoRodadaFactory = TIPOS_RODADA_FACTORY[0];
 
-    public Aplicacao getSoleInstance() {
+    public static Aplicacao getSoleInstance() {
         if (Aplicacao.soleInstance == null) {
             Aplicacao.soleInstance = new Aplicacao();
         }
@@ -75,7 +75,7 @@ public class Aplicacao {
     }
 
     public RepositoryFactory getRepositoryFactory() {
-        if (this.tipoRepositoryFactory.toLowerCase().equals(TIPOS_ELEMENTO_GRAFICO_FACTORY[0].toLowerCase())) {
+        if (this.tipoRepositoryFactory.toLowerCase().equals(TIPOS_REPOSITORY_FACTORY[0].toLowerCase())) {
             return MemoriaRepositoryFactory.getSoleInstance();
         }
         return null;
