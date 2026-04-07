@@ -38,17 +38,17 @@ public class RodadaSorteioFactory extends RodadaFactoryImpl {
         Random rnd = new Random();
 
         Tema[] temas = getTemaRepository().getTodos();
-        if (temas.length == 0)
+        if (temas.length == 0) {
             throw new IllegalStateException("Nao possui temas cadatrados");
-
+        }
         int idx = rnd.nextInt(temas.length);
 
         Tema temaSorteado = temas[idx];
 
         Palavra[] palavras = getPalavraRepository().getPorTema(temaSorteado);
-        if (palavras.length == 0)
+        if (palavras.length == 0) {
             throw new IllegalStateException("Nao possui palavras cadastradas");
-
+        }
         int numeroMaxPalavras = Math.min(palavras.length, Rodada.getMaxPalavras());
         int qtde = rnd.nextInt(numeroMaxPalavras) + 1;
 
