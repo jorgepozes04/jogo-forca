@@ -17,7 +17,7 @@ public class Main {
         Aplicacao app = Aplicacao.getSoleInstance();
         app.configurar();
 
-        CarregadorDeDados.carregarCSV("palavras.csv");
+        CarregadorDeDados.carregarCSV("../palavras.csv");
 
         JogadorFactory jogadorFactory = app.getJogadorFactory();
         Scanner scanner = new Scanner(System.in);

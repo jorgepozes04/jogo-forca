@@ -14,8 +14,15 @@ public class MemoriaPalavraRepository implements PalavraRepository {
 
     private List<Palavra> pool = new ArrayList<>();
 
-    public MemoriaPalavraRepository getSoleInstance() {
+    public static MemoriaPalavraRepository getSoleInstance() {
+        if (MemoriaPalavraRepository.soleInstance == null) {
+            MemoriaPalavraRepository.soleInstance = new MemoriaPalavraRepository();
+        }
+
         return MemoriaPalavraRepository.soleInstance;
+    }
+
+    private MemoriaPalavraRepository() {
     }
 
     @Override
@@ -51,7 +58,7 @@ public class MemoriaPalavraRepository implements PalavraRepository {
                 return p;
             }
         }
-        throw new IllegalArgumentException("Nenhum palavra encontrada");
+        return null;
     }
 
     @Override

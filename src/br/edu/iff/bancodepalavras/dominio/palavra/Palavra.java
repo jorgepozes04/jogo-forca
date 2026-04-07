@@ -94,6 +94,18 @@ public class Palavra extends ObjetoDominioImpl {
             throw new IllegalArgumentException("A palavra não pode estar vazia!");
         }
         this.palavra = palavra;
+
+        // Limpa a lista por segurança
+        this.letras.clear();
+
+        // Pega a fábrica de letras (que foi injetada pela classe Aplicacao)
+        LetraFactory factory = getLetraFactory();
+
+        // Transforma cada caractere da String em um Objeto Letra e adiciona na lista
+        for (int i = 0; i < palavra.length(); i++) {
+            char caractere = palavra.charAt(i);
+            this.letras.add(factory.getLetra(caractere));
+        }
     }
 
     @Override
