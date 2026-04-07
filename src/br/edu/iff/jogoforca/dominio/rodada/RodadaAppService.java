@@ -45,9 +45,9 @@ public class RodadaAppService {
     public Rodada novaRodada(String nomeJogador) throws JogadorNaoEncontradoException {
         Jogador jogador = jogadorRepository.getPorNome(nomeJogador);
 
-        if (jogador == null)
+        if (jogador == null) {
             throw new JogadorNaoEncontradoException(nomeJogador);
-
+        }
         Rodada rodada = rodadaFactory.getRodada(jogador);
 
         return rodada;
@@ -56,6 +56,7 @@ public class RodadaAppService {
     public boolean salvarRodada(Rodada rodada) {
         try {
             rodadaRepository.inserir(rodada);
+            jogadorRepository.atualizar(rodada.getJogador());
             return true;
         } catch (RepositoryException e) {
             return false;

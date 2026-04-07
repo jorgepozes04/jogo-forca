@@ -48,7 +48,7 @@ public class Main {
                 System.out.println();
                 System.out.println("Tentativas restantes: " + rodada.getQtdeTentativasRestantes());
                 System.out.println("---------------------------------");
-                System.out.print("Digite uma letra (ou ! para arriscar todas as palavras): ");
+                System.out.print("Digite uma letra (ou ! para arriscar): ");
                 String entrada = scanner.nextLine().trim().toLowerCase();
 
                 if (entrada.equals("!")) {
